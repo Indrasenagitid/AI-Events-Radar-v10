@@ -14,14 +14,59 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+.stApp {
+    background: #f6f8fb;
+}
+
+.block-container {
+    padding-top: 1rem;
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+    padding: 22px;
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.hero-subtitle {
+    font-size: 14px;
+    color: #dbeafe;
+    max-width: 1100px;
+}
+
+.section-title {
+    font-size: 21px;
+    font-weight: 900;
+    color: #111827;
+    margin-top: 14px;
+    margin-bottom: 10px;
+}
+
 .item-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    padding: 13px 15px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
     transition: all 0.25s ease;
 }
 
 .item-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border: 1px solid #2563eb;
-    box-shadow: 0 14px 35px rgba(37, 99, 235, 0.18);
+    box-shadow: 0 14px 32px rgba(37, 99, 235, 0.18);
     background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
 }
 
@@ -29,9 +74,75 @@ st.markdown("""
     color: #1d4ed8;
 }
 
+.item-title {
+    font-size: 16px;
+    font-weight: 900;
+    color: #111827;
+    margin-bottom: 5px;
+}
+
+.item-text {
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 2px;
+}
+
+.url-text {
+    font-size: 11px;
+    color: #64748b;
+    word-break: break-all;
+    margin-top: 5px;
+}
+
+.badge-high {
+    display: inline-block;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.badge-medium {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.badge-blue {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.badge-green {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
 .stButton > button {
     transition: all 0.25s ease;
     border-radius: 12px;
+    padding: 0.35rem 0.75rem;
+    font-size: 13px;
 }
 
 .stButton > button:hover {
@@ -40,122 +151,18 @@ st.markdown("""
     border-color: #2563eb;
     transform: translateY(-2px);
 }
-.stApp {
-    background: #f6f8fb;
-}
 
-.block-container {
-    padding-top: 1.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-
-.hero-card {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
-    padding: 28px;
-    border-radius: 22px;
-    color: white;
-    margin-bottom: 22px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-}
-
-.hero-title {
-    font-size: 34px;
-    font-weight: 800;
-    margin-bottom: 6px;
-}
-
-.hero-subtitle {
-    font-size: 15px;
-    color: #dbeafe;
-    max-width: 950px;
-}
-
-.metric-card {
+div[data-testid="stMetric"] {
     background: white;
-    padding: 18px;
-    border-radius: 18px;
     border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
-}
-
-.section-title {
-    font-size: 22px;
-    font-weight: 800;
-    color: #111827;
-    margin-top: 18px;
-    margin-bottom: 12px;
-}
-
-.item-card {
-    background: white;
-    border-radius: 18px;
-    border: 1px solid #e5e7eb;
-    padding: 18px;
-    margin-bottom: 14px;
+    padding: 12px 14px;
+    border-radius: 16px;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
 }
 
-.item-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 8px;
-}
-
-.item-text {
-    font-size: 14px;
-    color: #374151;
-    margin-bottom: 4px;
-}
-
-.badge-high {
-    display: inline-block;
-    background: #fee2e2;
-    color: #991b1b;
-    padding: 5px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.badge-medium {
-    display: inline-block;
-    background: #fef3c7;
-    color: #92400e;
-    padding: 5px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.badge-blue {
-    display: inline-block;
-    background: #dbeafe;
-    color: #1d4ed8;
-    padding: 5px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.badge-green {
-    display: inline-block;
-    background: #dcfce7;
-    color: #166534;
-    padding: 5px 10px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.small-muted {
-    color: #64748b;
-    font-size: 13px;
+div[data-testid="stMetric"]:hover {
+    border: 1px solid #2563eb;
+    box-shadow: 0 12px 28px rgba(37, 99, 235, 0.12);
 }
 
 a {
@@ -174,10 +181,25 @@ def load_data(query):
 
 def refresh_data():
     subprocess.run(
-        ["python", "refresh_all.py"],
+        ["python", "backend/refresh_all.py"],
         capture_output=True,
         text=True
     )
+
+
+def event_card(row, badge_class="badge-blue", show_url=True):
+    st.markdown(f"""
+    <div class="item-card">
+        <div class="{badge_class}">{row['region']} | Priority {row['priority']}</div>
+        <div class="item-title">{row['event_name']}</div>
+        <div class="item-text"><b>Category:</b> {row['category']}</div>
+        <div class="item-text"><b>Location:</b> {row['event_location']}</div>
+        <div class="item-text"><b>Source:</b> {row['source_name']}</div>
+        {"<div class='url-text'>" + row["registration_url"] + "</div>" if show_url else ""}
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.link_button("🔗 Open Official Event Page", row["registration_url"])
 
 
 summits_df = load_data("""
@@ -223,10 +245,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-top_bar_left, top_bar_right = st.columns([1, 5])
+top_bar_left, top_bar_right = st.columns([1, 8])
 
 with top_bar_left:
-    if st.button("🔄 Refresh Data"):
+    if st.button("🔄 Refresh"):
         refresh_data()
         st.success("Updated")
 
@@ -248,12 +270,12 @@ with m5:
 
 st.markdown('<div class="section-title">🚨 Executive AI Action Center</div>', unsafe_allow_html=True)
 
-action_cols = st.columns(2)
+action_cols = st.columns(3)
 
 for index, row in action_df.iterrows():
     badge_class = "badge-high" if row["priority"] == "HIGH" else "badge-medium"
 
-    with action_cols[index % 2]:
+    with action_cols[index % 3]:
         st.markdown(f"""
         <div class="item-card">
             <div class="{badge_class}">{row['priority']} | {row['category']}</div>
@@ -261,43 +283,40 @@ for index, row in action_df.iterrows():
         </div>
         """, unsafe_allow_html=True)
 
+st.markdown('<div class="section-title">🔥 Top AI Event Links for Testing</div>', unsafe_allow_html=True)
+
+event_test_cols = st.columns(5)
+
+for index, row in summits_df.head(5).iterrows():
+    with event_test_cols[index % 5]:
+        st.markdown(f"""
+        <div class="item-card">
+            <div class="badge-blue">Priority {row['priority']}</div>
+            <div class="item-title">{row['event_name']}</div>
+            <div class="item-text">{row['event_location']}</div>
+        </div>
+        """, unsafe_allow_html=True)
+        st.link_button("Open", row["registration_url"])
+
 left_col, right_col = st.columns(2)
 
 with left_col:
     st.markdown('<div class="section-title">🔥 Executive AI Recommendations</div>', unsafe_allow_html=True)
 
     for _, row in summits_df.head(5).iterrows():
-        st.markdown(f"""
-        <div class="item-card">
-            <div class="badge-blue">{row['region']} | Priority {row['priority']}</div>
-            <div class="item-title">{row['event_name']}</div>
-            <div class="item-text"><b>Why:</b> High-priority {row['category']} for {row['region']}.</div>
-            <div class="item-text"><b>Location:</b> {row['event_location']}</div>
-            <div class="item-text"><b>Source:</b> {row['source_name']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.link_button("🔗 Open Official Event Page", row["registration_url"])
-        st.caption(row["registration_url"])
+        event_card(row, "badge-blue", True)
 
     st.markdown('<div class="section-title">🇮🇳 India AI Events</div>', unsafe_allow_html=True)
 
     india_events = summits_df[summits_df["region"] == "India"].head(5)
 
     for _, row in india_events.iterrows():
-        st.markdown(f"""
-        <div class="item-card">
-            <div class="badge-green">India | Priority {row['priority']}</div>
-            <div class="item-title">{row['event_name']}</div>
-            <div class="item-text"><b>Category:</b> {row['category']}</div>
-            <div class="item-text"><b>Location:</b> {row['event_location']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        st.link_button("Open Event Page", row["registration_url"])
+        event_card(row, "badge-green", True)
 
 with right_col:
     st.markdown('<div class="section-title">🎓 Recommended AI Certifications</div>', unsafe_allow_html=True)
 
-    for _, row in certifications_df.head(10).iterrows():
+    for _, row in certifications_df.head(8).iterrows():
         st.markdown(f"""
         <div class="item-card">
             <div class="badge-blue">{row['provider']} | {row['level']}</div>
@@ -309,15 +328,16 @@ with right_col:
 
     st.markdown('<div class="section-title">📚 AI Learning Hub</div>', unsafe_allow_html=True)
 
-    for _, row in learning_df.head(8).iterrows():
+    for _, row in learning_df.head(6).iterrows():
         st.markdown(f"""
         <div class="item-card">
             <div class="badge-green">{row['category']}</div>
             <div class="item-title">{row['resource_name']}</div>
             <div class="item-text">Recommended learning source for {row['category']}.</div>
+            <div class="url-text">{row['url']}</div>
         </div>
         """, unsafe_allow_html=True)
-        st.link_button("Open Learning Resource", row["url"])
+        st.link_button("🔗 Open Learning Resource", row["url"])
 
     st.markdown('<div class="section-title">📰 Latest Important AI Updates</div>', unsafe_allow_html=True)
 
@@ -327,6 +347,7 @@ with right_col:
             <div class="badge-blue">{row['source']}</div>
             <div class="item-title">{row['title']}</div>
             <div class="item-text"><b>Technology:</b> {row['technology']}</div>
+            <div class="url-text">{row['link']}</div>
         </div>
         """, unsafe_allow_html=True)
-        st.link_button("Open Update", row["link"])
+        st.link_button("🔗 Open Update", row["link"])
