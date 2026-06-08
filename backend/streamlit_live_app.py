@@ -4,7 +4,7 @@ import streamlit as st
 from datetime import datetime
 import subprocess
 
-DB_PATH = "data/events.db"
+DB_PATH = "backend/data/events.db"
 
 st.set_page_config(
     page_title="AI Events Radar",
