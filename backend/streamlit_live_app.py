@@ -14,6 +14,29 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+[data-testid="stToolbar"] {
+    display: none;
+}
+
+[data-testid="stDecoration"] {
+    display: none;
+}
+
+button[kind="header"] {
+    display: none;
+}
 .stApp {
     background: #f6f8fb;
 }
