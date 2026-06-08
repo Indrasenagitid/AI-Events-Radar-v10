@@ -276,7 +276,8 @@ with left_col:
             <div class="item-text"><b>Source:</b> {row['source_name']}</div>
         </div>
         """, unsafe_allow_html=True)
-        st.link_button("Open Event Page", row["registration_url"])
+        st.link_button("🔗 Open Official Event Page", row["registration_url"])
+        st.caption(row["registration_url"])
 
     st.markdown('<div class="section-title">🇮🇳 India AI Events</div>', unsafe_allow_html=True)
 
