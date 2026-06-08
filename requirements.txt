@@ -1,0 +1,6 @@
+streamlit
+pandas
+feedparser
+fastapi
+uvicorn
+openpyxl
