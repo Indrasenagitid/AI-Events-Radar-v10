@@ -3,8 +3,10 @@ import pandas as pd
 import streamlit as st
 from datetime import datetime
 import subprocess
+from pathlib import Path
 
-DB_PATH = "backend/data/events.db"
+BASE_DIR = Path(__file__).parent
+DB_PATH = str(BASE_DIR / "data" / "events.db")
 
 st.set_page_config(
     page_title="AI Events Radar",
@@ -12,6 +14,9 @@ st.set_page_config(
     layout="wide"
 )
 
+LOGO_PATH = BASE_DIR / "ai_events_radar_logo.png"
+
+st.image(str(LOGO_PATH), width=250)
 st.markdown("""
 <style>
 #MainMenu {
